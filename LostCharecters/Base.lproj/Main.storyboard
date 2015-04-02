@@ -112,12 +112,14 @@
                                 <segment title="Name"/>
                                 <segment title="Gender"/>
                             </segments>
-                            <color key="tintColor" red="0.13725490200000001" green="0.3294117647" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="lostToggle:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="owM-r2-DDN"/>
+                                <action selector="onSegmentSelected:" destination="vXZ-lx-hvc" eventType="valueChanged" id="5Rm-Ne-jXe"/>
                             </connections>
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="7TL-dt-6gL">
+                            <color key="tintColor" red="0.14528561200000001" green="0.71503046579999996" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="HEf-jB-zOh" kind="presentation" identifier="add" id="aeP-j4-7CS"/>
                             </connections>
@@ -343,10 +345,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.14528561200000001" green="0.71503046579999996" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="tintColor" red="0.13725490200000001" green="0.3294117647" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="0.14528561200000001" green="0.71503046579999996" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.14528561200000001" green="0.71503046579999996" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.13725490200000001" green="0.3294117647" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.13725490200000001" green="0.3294117647" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </textAttributes>
                     </navigationBar>
@@ -547,6 +549,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Edit your actor" id="kew-uv-mJj">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="zGJ-nh-Ehe">
+                            <color key="tintColor" red="0.14528561200000001" green="0.71503046579999996" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="onEditButtonPressed:" destination="Lpz-78-2ny" id="Ic3-DX-Sle"/>
                             </connections>
@@ -576,4 +579,5 @@
         <image name="signup_camera" width="85" height="85"/>
         <image name="x" width="15" height="15"/>
     </resources>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
 </document>

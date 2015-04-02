@@ -39,7 +39,6 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self fetchNewData];
-    [self.tableView reloadData];
 }
 
 #pragma mark - UITableViewDataSource
@@ -99,7 +98,6 @@
 
 #pragma mark - CoreData
 - (void)loadPlist {
-
     [self fetchNewData];
     if (self.lostCharacters.count == 0) {
         NSString *path = [[NSBundle mainBundle] pathForResource:@"lost" ofType:@"plist"];
@@ -303,4 +301,19 @@
     }
 }
 
+- (IBAction)onSegmentSelected:(UISegmentedControl *)sender {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Character"];
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSSortDescriptor *sortTwo = [[NSSortDescriptor alloc] initWithKey:@"gender" ascending:YES];
+
+    if (self.segmentControl.selectedSegmentIndex == 0) {
+        request.predicate = [NSPredicate predicateWithFormat:@"name BEGINSWITH %@", @"A"];
+    } else if (self.segmentControl.selectedSegmentIndex == 1) {
+        request.predicate = [NSPredicate predicateWithFormat:@"gender == 'Male'"];
+    }
+
+    request.sortDescriptors = @[sort, sortTwo];
+
+
+}
 @end

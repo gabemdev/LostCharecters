@@ -9,6 +9,7 @@
 #import "AddNewLostViewController.h"
 #import <CoreData/CoreData.h>
 #import "AppDelegate.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface AddNewLostViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *image;
@@ -65,7 +66,7 @@
     [self.image setImage:image];
     self.selectedImage = image;
     self.image.layer.cornerRadius = self.image.frame.size.width/2;
-    [self.view layoutSubviews];
+    self.image.layer.masksToBounds = YES;
 
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -73,6 +74,16 @@
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [self dismissViewControllerAnimated:YES completion:nil];
 
+}
+
+-(void)createMaskForImage:(UIImageView *)image
+{
+    CALayer *mask = [CALayer layer];
+    UIImage *maskImage = [UIImage imageNamed:@"circle.png"];
+    mask.contents = (id)[maskImage CGImage];
+    mask.frame = CGRectMake(0, 0,maskImage.size.width, maskImage.size.height);
+    image.layer.mask = mask;
+    image.layer.masksToBounds = YES;
 }
 
 #pragma mark - Actions
